@@ -10,10 +10,12 @@
 <h2>Simple Form</h2>
 <form id="myForm" action="http://127.0.0.1:3000/submit-form" method="POST">
     <label for="firstName">First Name:</label><br>
-    <input type="text" id="firstName" name="firstName"><br>
+    <input type="text" id="firstName" name="firstName"
+    required minlength="1"><br>
     
     <label for="lastName">Last Name:</label><br>
-    <input type="text" id="lastName" name="lastName"><br>
+    <input type="text" id="lastName" name="lastName"
+    required minlength="1"><br>
     
     
     <label for="otherNames">Other Names:</label><br>
