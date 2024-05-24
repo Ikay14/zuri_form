@@ -12,33 +12,22 @@ async function validateForm(event) {
   event.preventDefault();
 
   // Define the required length for names and set the pattern for the phone number
-  const nameLength = 2;
-  const phoneNumberPattern = /^\d{10,}$/;
+  const nameLength = 1;
+  const wordOnly = /^[a-zA-Z]+$/;
 
   // Initialize isValid to true
   let isValid = true;
 
   // Validate firstName and lastName
-  if (!firstName.value || firstName.value.trim().length < nameLength) {
+  if (!wordOnly.test(firstName.value)) {
     isValid = false;
   }
 
-  if (!lastName.value || lastName.value.trim().length < nameLength) {
+  if (!wordOnly.test(lastName.value)) {
     isValid = false;
   }
 
-  // Validate otherName
-  if (otherName.value.trim() !== "" && otherName.value.trim() <= 2) {
-    isValid = false;
-  }
-
-  // Validate email
-  if (!email.validity.valid) {
-    isValid = false;
-  }
-
-  // Validate phone
-  if (!phoneNumberPattern.test(phone.value)) {
+  if(otherName.value.trim() && !wordOnly.test(otherName.value)) {
     isValid = false;
   }
 

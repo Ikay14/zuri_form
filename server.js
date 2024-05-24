@@ -29,6 +29,17 @@ const server = http.createServer(async function(req, res) {
       return;
     }
   } 
+  else if(req.url === "/favicon.ico" && req.method === "GET"){
+    try {
+      let data = await fs.readFile("public/favicon.ico");
+      res.writeHead(200, { "Content-Type": "image/x-icon" });
+      res.end(data);
+    } catch (e) {
+      res.writeHead(500, { "Content-Type": "text/plain" });
+      res.end("Could not locate file at " + req.url);
+      return;
+    }
+  } 
   else if (req.url === "/submit-form" && req.method === "POST") {
     let body = "";
     req.on("data", (chunk) => {
