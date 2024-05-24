@@ -1,10 +1,13 @@
 {
   "name": "form-data",
+  "type": "module",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+    "build": "cls"
   },
   "author": "",
   "license": "ISC",
